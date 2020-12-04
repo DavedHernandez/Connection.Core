@@ -46,6 +46,19 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblConexion = new System.Windows.Forms.Label();
             this.gvConfiguracion = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.chkManual = new System.Windows.Forms.CheckBox();
+            this.btnExportarxml = new System.Windows.Forms.Button();
+            this.lblmensaje = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.txtRemplazar = new System.Windows.Forms.RichTextBox();
+            this.txtConfigOriginal = new System.Windows.Forms.RichTextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbNodos = new System.Windows.Forms.ComboBox();
+            this.txtRutaconfig = new System.Windows.Forms.TextBox();
+            this.btnCargarConfig = new System.Windows.Forms.Button();
+            this.selectFile = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalle)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -54,6 +67,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvProyectos)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvConfiguracion)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // gridPrincipal
@@ -96,11 +110,12 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.tabControl1.Location = new System.Drawing.Point(42, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1384, 731);
+            this.tabControl1.Size = new System.Drawing.Size(1380, 731);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -123,7 +138,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1376, 702);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Análisis";
+            this.tabPage1.Text = "Analizar .csproj";
             // 
             // rbConfig
             // 
@@ -238,7 +253,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1376, 702);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Configuraciones";
+            this.tabPage2.Text = "Conexiones";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // lblConexion
@@ -258,12 +273,158 @@
             this.gvConfiguracion.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.gvConfiguracion.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.gvConfiguracion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvConfiguracion.Location = new System.Drawing.Point(239, 194);
+            this.gvConfiguracion.Location = new System.Drawing.Point(24, 76);
             this.gvConfiguracion.Name = "gvConfiguracion";
             this.gvConfiguracion.RowHeadersWidth = 51;
             this.gvConfiguracion.RowTemplate.Height = 24;
             this.gvConfiguracion.Size = new System.Drawing.Size(945, 317);
             this.gvConfiguracion.TabIndex = 3;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.chkManual);
+            this.tabPage3.Controls.Add(this.btnExportarxml);
+            this.tabPage3.Controls.Add(this.lblmensaje);
+            this.tabPage3.Controls.Add(this.btnActualizar);
+            this.tabPage3.Controls.Add(this.txtRemplazar);
+            this.tabPage3.Controls.Add(this.txtConfigOriginal);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.cmbNodos);
+            this.tabPage3.Controls.Add(this.txtRutaconfig);
+            this.tabPage3.Controls.Add(this.btnCargarConfig);
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1372, 702);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Configurar .config";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // chkManual
+            // 
+            this.chkManual.AutoSize = true;
+            this.chkManual.Location = new System.Drawing.Point(131, 129);
+            this.chkManual.Name = "chkManual";
+            this.chkManual.Size = new System.Drawing.Size(67, 21);
+            this.chkManual.TabIndex = 24;
+            this.chkManual.Text = "Editar";
+            this.chkManual.UseVisualStyleBackColor = true;
+            this.chkManual.CheckedChanged += new System.EventHandler(this.chkManual_CheckedChanged);
+            // 
+            // btnExportarxml
+            // 
+            this.btnExportarxml.BackColor = System.Drawing.Color.Black;
+            this.btnExportarxml.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportarxml.ForeColor = System.Drawing.Color.Cyan;
+            this.btnExportarxml.Location = new System.Drawing.Point(658, 129);
+            this.btnExportarxml.Name = "btnExportarxml";
+            this.btnExportarxml.Size = new System.Drawing.Size(90, 32);
+            this.btnExportarxml.TabIndex = 23;
+            this.btnExportarxml.Text = "Exportar";
+            this.btnExportarxml.UseVisualStyleBackColor = false;
+            this.btnExportarxml.Click += new System.EventHandler(this.btnExportarxml_Click);
+            // 
+            // lblmensaje
+            // 
+            this.lblmensaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblmensaje.AutoSize = true;
+            this.lblmensaje.Location = new System.Drawing.Point(1064, 133);
+            this.lblmensaje.Name = "lblmensaje";
+            this.lblmensaje.Size = new System.Drawing.Size(109, 17);
+            this.lblmensaje.TabIndex = 21;
+            this.lblmensaje.Text = "Remplazar por..";
+            this.lblmensaje.Visible = false;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.Black;
+            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.ForeColor = System.Drawing.Color.Cyan;
+            this.btnActualizar.Location = new System.Drawing.Point(754, 129);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(90, 32);
+            this.btnActualizar.TabIndex = 20;
+            this.btnActualizar.Text = "Grabar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // txtRemplazar
+            // 
+            this.txtRemplazar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtRemplazar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRemplazar.Location = new System.Drawing.Point(864, 169);
+            this.txtRemplazar.Name = "txtRemplazar";
+            this.txtRemplazar.Size = new System.Drawing.Size(483, 515);
+            this.txtRemplazar.TabIndex = 18;
+            this.txtRemplazar.Text = "";
+            // 
+            // txtConfigOriginal
+            // 
+            this.txtConfigOriginal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfigOriginal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(136)))), ((int)(((byte)(236)))));
+            this.txtConfigOriginal.Location = new System.Drawing.Point(131, 169);
+            this.txtConfigOriginal.Name = "txtConfigOriginal";
+            this.txtConfigOriginal.ReadOnly = true;
+            this.txtConfigOriginal.Size = new System.Drawing.Size(713, 515);
+            this.txtConfigOriginal.TabIndex = 17;
+            this.txtConfigOriginal.Text = "";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(32, 38);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(84, 17);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Ruta config:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(32, 82);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 17);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Nodos:";
+            // 
+            // cmbNodos
+            // 
+            this.cmbNodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbNodos.FormattingEnabled = true;
+            this.cmbNodos.Location = new System.Drawing.Point(131, 75);
+            this.cmbNodos.Name = "cmbNodos";
+            this.cmbNodos.Size = new System.Drawing.Size(713, 28);
+            this.cmbNodos.TabIndex = 14;
+            this.cmbNodos.SelectedIndexChanged += new System.EventHandler(this.cmbNodos_SelectedIndexChanged);
+            // 
+            // txtRutaconfig
+            // 
+            this.txtRutaconfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.txtRutaconfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRutaconfig.Location = new System.Drawing.Point(131, 33);
+            this.txtRutaconfig.Name = "txtRutaconfig";
+            this.txtRutaconfig.ReadOnly = true;
+            this.txtRutaconfig.Size = new System.Drawing.Size(713, 26);
+            this.txtRutaconfig.TabIndex = 13;
+            // 
+            // btnCargarConfig
+            // 
+            this.btnCargarConfig.BackColor = System.Drawing.Color.Black;
+            this.btnCargarConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargarConfig.ForeColor = System.Drawing.Color.Cyan;
+            this.btnCargarConfig.Location = new System.Drawing.Point(562, 129);
+            this.btnCargarConfig.Name = "btnCargarConfig";
+            this.btnCargarConfig.Size = new System.Drawing.Size(90, 32);
+            this.btnCargarConfig.TabIndex = 12;
+            this.btnCargarConfig.Text = "Cargar";
+            this.btnCargarConfig.UseVisualStyleBackColor = false;
+            this.btnCargarConfig.Click += new System.EventHandler(this.btnCargarConfig_Click);
+            // 
+            // selectFile
+            // 
+            this.selectFile.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -271,7 +432,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1456, 791);
+            this.ClientSize = new System.Drawing.Size(1434, 791);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -286,6 +447,8 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gvConfiguracion)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -309,6 +472,19 @@
         private System.Windows.Forms.Label lblConexion;
         private System.Windows.Forms.Button btnExportar;
         private System.Windows.Forms.RadioButton rbConfig;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox txtRutaconfig;
+        private System.Windows.Forms.Button btnCargarConfig;
+        private System.Windows.Forms.OpenFileDialog selectFile;
+        private System.Windows.Forms.RichTextBox txtConfigOriginal;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbNodos;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.RichTextBox txtRemplazar;
+        private System.Windows.Forms.Label lblmensaje;
+        private System.Windows.Forms.Button btnExportarxml;
+        private System.Windows.Forms.CheckBox chkManual;
     }
 }
 
