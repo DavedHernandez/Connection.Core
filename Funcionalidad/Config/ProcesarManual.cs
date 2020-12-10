@@ -1,23 +1,22 @@
 ﻿using Analizador.Data.Entity;
 using Analizador.Interfaz;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Analizador.Funcionalidad.Config
 {
     public class ProcesarManual : IProcesar
     {
         private ParametrosEntity parametro;
-        public ProcesarManual(ParametrosEntity parametro)
+        private string contenido;
+        public ProcesarManual(ParametrosEntity parametro,string contenido)
         {
             this.parametro = parametro;
+            this.contenido = contenido;
         }
         public void Iniciar()
         {
-           
+            parametro.nuevosvalues = new StringBuilder();
+            parametro.nuevosvalues.AppendLine(contenido);
         }
 
         

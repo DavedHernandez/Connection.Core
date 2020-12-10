@@ -31,7 +31,7 @@ namespace Analizador.Funcionalidad.Config
             {
                 //procesador.MetodoBuilder(new ParametrosEntity { item = item, contenidoxml = contenidoxml, nodoseleccionado = nodoseleccionado, nuevoxml = nuevoxml });
                 parametro.item = item;
-                procesador.metodo = new ActualizarNodo().BuilderConstructor(parametro);
+                procesador.metodo = new NodoBuilder().Builder(parametro);
                 procesador.Iniciarproceso();
 
                 if (agregar)

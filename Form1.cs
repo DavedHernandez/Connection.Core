@@ -114,12 +114,13 @@ namespace Analizador
             {
                 string seleccion = ((ComboBox)sender).Text;
                 bool automatico = seleccion.ToLower() == "appsettings" || seleccion.ToLower() == "connectionstrings";
-                txtConfigOriginal.Text = config.nodos.Find(i => i.name == seleccion).content;
 
-                txtRemplazar.BorderStyle = automatico ? BorderStyle.Fixed3D : BorderStyle.None;
+                txtConfigOriginal.Text = !lstnodos.Exists(i => i.name == seleccion) ?
+                    config.nodos.Find(i => i.name == seleccion).content : lstnodos.Find(i => i.name == seleccion).content;
+
+                txtRemplazar.Clear();
+                txtRemplazar.Visible = automatico;
                 lblmensaje.Visible = automatico;
-
-
             }
         }
 
@@ -148,7 +149,7 @@ namespace Analizador
                     if (nodoseleccionado.ToLower() == "appsettings" || nodoseleccionado.ToLower() == "connectionstrings")
                         procesador.metodo = new ProcesarAutomatico(parametro, txtRemplazar.Text);
                     else
-                        procesador.metodo = new ProcesarManual(parametro);
+                        procesador.metodo = new ProcesarManual(parametro, txtConfigOriginal.Text);
 
                     procesador.Iniciarproceso();
                     txtConfigOriginal.Text = parametro.nuevosvalues.ToString();
@@ -186,8 +187,22 @@ namespace Analizador
                 string ruta = Path.Combine(viewFolder.SelectedPath, nombre);
 
                 ExportarConfig.Exportar(lstnodos, config, ruta);
+                ExportarConfigtmp.Exportar(lstnodos, ruta);
                 MessageBox.Show($"Exportado en: {ruta}");
             }
+        }
+
+        private void btnRollback_Click(object sender, EventArgs e)
+        {
+            if (lstnodos?.Any() == false || lstnodos == null)
+            {
+                MessageBox.Show("Especifique los nuevos valores del config");
+                return;
+            }
+            lstnodos?.Clear();
+            chkManual.Checked = false;
+            MessageBox.Show("Se limpiaron los nuevos valores");
+
         }
     }
 }

@@ -3,10 +3,10 @@ using Analizador.Interfaz;
 
 namespace Analizador.Funcionalidad.Config
 {
-    public class ActualizarNodo
+    public class NodoBuilder
     {
 
-        public IProcesar BuilderConstructor(ParametrosEntity parametro)
+        public IProcesar Builder(ParametrosEntity parametro)
         {
             switch (parametro.nodoseleccionado.ToLower())
             {

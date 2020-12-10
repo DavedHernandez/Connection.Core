@@ -59,6 +59,7 @@
             this.txtRutaconfig = new System.Windows.Forms.TextBox();
             this.btnCargarConfig = new System.Windows.Forms.Button();
             this.selectFile = new System.Windows.Forms.OpenFileDialog();
+            this.btnRollback = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalle)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -136,7 +137,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1376, 702);
+            this.tabPage1.Size = new System.Drawing.Size(1372, 702);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Analizar .csproj";
             // 
@@ -251,7 +252,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1376, 702);
+            this.tabPage2.Size = new System.Drawing.Size(1372, 702);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Conexiones";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -282,6 +283,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnRollback);
             this.tabPage3.Controls.Add(this.chkManual);
             this.tabPage3.Controls.Add(this.btnExportarxml);
             this.tabPage3.Controls.Add(this.lblmensaje);
@@ -317,7 +319,7 @@
             this.btnExportarxml.BackColor = System.Drawing.Color.Black;
             this.btnExportarxml.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExportarxml.ForeColor = System.Drawing.Color.Cyan;
-            this.btnExportarxml.Location = new System.Drawing.Point(658, 129);
+            this.btnExportarxml.Location = new System.Drawing.Point(658, 131);
             this.btnExportarxml.Name = "btnExportarxml";
             this.btnExportarxml.Size = new System.Drawing.Size(90, 32);
             this.btnExportarxml.TabIndex = 23;
@@ -341,7 +343,7 @@
             this.btnActualizar.BackColor = System.Drawing.Color.Black;
             this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnActualizar.ForeColor = System.Drawing.Color.Cyan;
-            this.btnActualizar.Location = new System.Drawing.Point(754, 129);
+            this.btnActualizar.Location = new System.Drawing.Point(562, 131);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(90, 32);
             this.btnActualizar.TabIndex = 20;
@@ -352,7 +354,7 @@
             // txtRemplazar
             // 
             this.txtRemplazar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRemplazar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRemplazar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRemplazar.Location = new System.Drawing.Point(864, 169);
             this.txtRemplazar.Name = "txtRemplazar";
             this.txtRemplazar.Size = new System.Drawing.Size(483, 515);
@@ -414,7 +416,7 @@
             this.btnCargarConfig.BackColor = System.Drawing.Color.Black;
             this.btnCargarConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargarConfig.ForeColor = System.Drawing.Color.Cyan;
-            this.btnCargarConfig.Location = new System.Drawing.Point(562, 129);
+            this.btnCargarConfig.Location = new System.Drawing.Point(466, 131);
             this.btnCargarConfig.Name = "btnCargarConfig";
             this.btnCargarConfig.Size = new System.Drawing.Size(90, 32);
             this.btnCargarConfig.TabIndex = 12;
@@ -425,6 +427,19 @@
             // selectFile
             // 
             this.selectFile.FileName = "openFileDialog1";
+            // 
+            // btnRollback
+            // 
+            this.btnRollback.BackColor = System.Drawing.Color.Black;
+            this.btnRollback.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRollback.ForeColor = System.Drawing.Color.Cyan;
+            this.btnRollback.Location = new System.Drawing.Point(754, 131);
+            this.btnRollback.Name = "btnRollback";
+            this.btnRollback.Size = new System.Drawing.Size(90, 32);
+            this.btnRollback.TabIndex = 25;
+            this.btnRollback.Text = "Rollback";
+            this.btnRollback.UseVisualStyleBackColor = false;
+            this.btnRollback.Click += new System.EventHandler(this.btnRollback_Click);
             // 
             // Form1
             // 
@@ -485,6 +500,7 @@
         private System.Windows.Forms.Label lblmensaje;
         private System.Windows.Forms.Button btnExportarxml;
         private System.Windows.Forms.CheckBox chkManual;
+        private System.Windows.Forms.Button btnRollback;
     }
 }
 

@@ -81,7 +81,9 @@
     </Compile>
     <Compile Include="Funcionalidad\Config\ActualizarAppSetting.cs" />
     <Compile Include="Funcionalidad\Config\ActualizarConnectionString.cs" />
-    <Compile Include="Funcionalidad\Config\ActualizarNodo.cs" />
+    <Compile Include="Funcionalidad\Config\CrearConfig.cs" />
+    <Compile Include="Funcionalidad\Config\ExportarConfigtmp.cs" />
+    <Compile Include="Funcionalidad\Config\NodoBuilder.cs" />
     <Compile Include="Funcionalidad\Config\ProcesarAutomatico.cs" />
     <Compile Include="Funcionalidad\Config\AgregarAppSetting.cs" />
     <Compile Include="Funcionalidad\Config\AgregarNodo.cs" />
