@@ -1,4 +1,4 @@
-﻿using Framework.XML.Data.Model;
+﻿ 
 
 using IronXL;
 
@@ -9,6 +9,7 @@ using NPOI.SS.UserModel;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using XML.Core.Data.Model;
 
 namespace Analizador.Funcionalidad.Excel
 {

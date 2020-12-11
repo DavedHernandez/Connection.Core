@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Framework.XML, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Framework.XML.1.0.0\lib\net48\Framework.XML.dll</HintPath>
-    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>packages\NPOI.Excel.2.1.1\lib\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -69,21 +66,42 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="XML.Core, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\XML.Core.1.0.0.3\lib\net48\XML.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Entity\ConfigNodoEntity.cs" />
+    <Compile Include="Data\Entity\ParametrosEntity.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funcionalidad\Config\ActualizarAppSetting.cs" />
+    <Compile Include="Funcionalidad\Config\ActualizarConnectionString.cs" />
+    <Compile Include="Funcionalidad\Config\CrearConfig.cs" />
+    <Compile Include="Funcionalidad\Config\ExportarConfigtmp.cs" />
+    <Compile Include="Funcionalidad\Config\NodoBuilder.cs" />
+    <Compile Include="Funcionalidad\Config\ProcesarAutomatico.cs" />
+    <Compile Include="Funcionalidad\Config\AgregarAppSetting.cs" />
+    <Compile Include="Funcionalidad\Config\AgregarNodo.cs" />
+    <Compile Include="Funcionalidad\Config\ConfigBase.cs" />
+    <Compile Include="Funcionalidad\Config\ExportarConfig.cs" />
+    <Compile Include="Funcionalidad\Config\ProcesarManual.cs" />
     <Compile Include="Funcionalidad\Excel\CrearCeldaExcel.cs" />
     <Compile Include="Funcionalidad\Excel\CrearCeldaHeaderExcel.cs" />
     <Compile Include="Funcionalidad\Excel\CrearExcel.cs" />
     <Compile Include="Funcionalidad\Excel\CrearFilaExcel.cs" />
     <Compile Include="Funcionalidad\VisualStudio\AnalizarProject.cs" />
+    <Compile Include="Funcionalidad\xml\Crearxml.cs" />
+    <Compile Include="Interfaz\IProcesar.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

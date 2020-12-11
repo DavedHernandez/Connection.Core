@@ -1,10 +1,13 @@
-﻿using Framework.XML.Data.Model;
-using Framework.XML.Funcionalidad.Maping;
+﻿//using Framework.XML.Data.Model;
+//using Framework.XML.Funcionalidad.Maping;
 
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
+using XML.Core.Data.Model;
+using XML.Core.Funcionalidad.Maping;
 
 namespace Analizador.Funcionalidad.VisualStudio
 {
@@ -19,8 +22,8 @@ namespace Analizador.Funcionalidad.VisualStudio
 
             foreach (var item in directorio.GetFiles("*.csproj", SearchOption.AllDirectories))
             {
-                ObtenerDependenciasVisualStudioModel modelo = new ObtenerDependenciasVisualStudioModel(item.FullName);
-                lstresultado.Add(modelo.Mapear().VisualStudio);
+                MapearVisualStudio modelo = new MapearVisualStudio(XDocument.Load(item.FullName), item.FullName);
+                lstresultado.Add(modelo.Mapear());
             }
 
             return lstresultado.OrderBy(i=> i.VisualStudio.TotalDependencias).ToList();
