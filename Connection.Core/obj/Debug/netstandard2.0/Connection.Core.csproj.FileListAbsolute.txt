@@ -1,0 +1,8 @@
+C:\Bitbucket\Connection.Core\Connection.Core\bin\Debug\netstandard2.0\Connection.Core.deps.json
+C:\Bitbucket\Connection.Core\Connection.Core\bin\Debug\netstandard2.0\Connection.Core.dll
+C:\Bitbucket\Connection.Core\Connection.Core\bin\Debug\netstandard2.0\Connection.Core.pdb
+C:\Bitbucket\Connection.Core\Connection.Core\obj\Debug\netstandard2.0\Connection.Core.AssemblyInfoInputs.cache
+C:\Bitbucket\Connection.Core\Connection.Core\obj\Debug\netstandard2.0\Connection.Core.AssemblyInfo.cs
+C:\Bitbucket\Connection.Core\Connection.Core\obj\Debug\netstandard2.0\Connection.Core.csproj.CoreCompileInputs.cache
+C:\Bitbucket\Connection.Core\Connection.Core\obj\Debug\netstandard2.0\Connection.Core.dll
+C:\Bitbucket\Connection.Core\Connection.Core\obj\Debug\netstandard2.0\Connection.Core.pdb
