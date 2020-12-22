@@ -20,7 +20,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyProductAttribute("Conexion.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Connection.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.4")]
-[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/Dave-dei/Connection.Core")]
+[assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/DavedHernandez/Connection.Core.git")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
 

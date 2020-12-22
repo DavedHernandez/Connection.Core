@@ -19,3 +19,4 @@ C:\Bitbucket\Connection.Core\Connection.Core\obj\Release\net48\Connection.Core.c
 C:\Bitbucket\Connection.Core\Connection.Core\obj\Release\net48\Connection.Core.csproj.CopyComplete
 C:\Bitbucket\Connection.Core\Connection.Core\obj\Release\net48\Connection.Core.dll
 C:\Bitbucket\Connection.Core\Connection.Core\obj\Release\net48\Connection.Core.pdb
+C:\Bitbucket\Connection.Core\Connection.Core\obj\Release\net48\Connection.Core.csprojAssemblyReference.cache

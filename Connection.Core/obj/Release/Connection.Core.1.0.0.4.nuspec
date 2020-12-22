@@ -10,7 +10,7 @@
     <description>Nuget para realizar la conexión a SQL y ejecutar procesos Crud, es multiplataforma se puede utilizar en proyectos Core y soporta Framework 4.8</description>
     <releaseNotes>Se agrego una sobrecarga al método ObtenerListaGenericafromTable para convertir un DataTable a Lista genérica.</releaseNotes>
     <tags>CRUD, SQL</tags>
-    <repository url="https://github.com/Dave-dei/Connection.Core" />
+    <repository url="https://github.com/DavedHernandez/Connection.Core.git" />
     <dependencies>
       <group targetFramework=".NETFramework4.8">
         <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
