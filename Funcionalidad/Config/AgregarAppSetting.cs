@@ -16,9 +16,13 @@ namespace Analizador.Funcionalidad.Config
         public void Iniciar()
         {
             var nuevosappsettings = parametro.configparseado.appSetting.Where(i => parametro.config.appSetting.All(b => b.key != i.key)).ToList();
+
+            if (nuevosappsettings?.Any() == true)
+                parametro.nuevosvalues.AppendLine("<!--Nuevos valores-->");
+
             foreach (var x in nuevosappsettings)
             {
-                parametro.nuevosvalues.AppendLine($"<add key=\"{ x.key }\" value=\"{ x.value }\"/>     <!--Agregado-->");
+                parametro.nuevosvalues.AppendLine($"<add key=\"{ x.key }\" value=\"{ x.value }\"/>");
             }
         }
     }

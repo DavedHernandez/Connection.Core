@@ -34,4 +34,3 @@ C:\Bitbucket\extractorconfig\obj\Debug\Analizador.csproj.CoreCompileInputs.cache
 C:\Bitbucket\extractorconfig\obj\Debug\Analizador.csproj.CopyComplete
 C:\Bitbucket\extractorconfig\obj\Debug\Analizador.exe
 C:\Bitbucket\extractorconfig\obj\Debug\Analizador.pdb
-C:\Bitbucket\extractorconfig\obj\Debug\Analizador.csprojAssemblyReference.cache

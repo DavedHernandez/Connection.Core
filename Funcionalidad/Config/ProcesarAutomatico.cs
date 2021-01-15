@@ -23,7 +23,7 @@ namespace Analizador.Funcionalidad.Config
 
             ConfigBase procesador = new ConfigBase();
             parametro.nuevosvalues = new StringBuilder();
-            bool agregar = false;
+            bool agregar = true;
 
             parametro.configparseado = new MapearConfig(Crearxml.Crear(parametro.nodoseleccionado, nuevosparametros)).Mapear();
 
