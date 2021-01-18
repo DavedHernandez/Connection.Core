@@ -1,4 +1,5 @@
 ﻿using Analizador.Data.Entity;
+using Analizador.Forms;
 using Analizador.Funcionalidad.Config;
 using Analizador.Funcionalidad.Excel;
 using Analizador.Funcionalidad.VisualStudio;
@@ -21,11 +22,14 @@ namespace Analizador
         static List<VisualStudioModel> lstProyectos;
         private ConfigModel config;
         private List<ConfigNodoEntity> lstnodos;
-
+        private ParametrosEntity parametro;
 
         public Form1()
         {
             InitializeComponent();
+
+            lstnodos = new List<ConfigNodoEntity>();
+            parametro = new ParametrosEntity();
         }
 
         private void btnProcesar_Click(object sender, EventArgs e)
@@ -103,8 +107,13 @@ namespace Analizador
                 txtRutaconfig.Text = selectFile.FileName;
                 config = new MapearConfig(XDocument.Load(txtRutaconfig.Text)).Mapear();
 
+                txtConfigOriginal.Clear();
+                cmbNodos.Items.Clear();
                 cmbNodos.Items.AddRange((from x in config.nodos select x.name).ToArray());
+
+
                 lstnodos = new List<ConfigNodoEntity>();
+                parametro = new ParametrosEntity();
             }
         }
 
@@ -117,10 +126,6 @@ namespace Analizador
 
                 txtConfigOriginal.Text = !lstnodos.Exists(i => i.name == seleccion) ?
                     config.nodos.Find(i => i.name == seleccion).content : lstnodos.Find(i => i.name == seleccion).content;
-
-                txtRemplazar.Clear();
-                txtRemplazar.Visible = automatico;
-                lblmensaje.Visible = automatico;
             }
         }
 
@@ -140,26 +145,15 @@ namespace Analizador
                     }
 
                     StringBuilder contenidoxml = new StringBuilder();
-                    ConfigBase procesador = new ConfigBase();
-                    ParametrosEntity parametro = new ParametrosEntity();
-                    parametro.nodoseleccionado = nodoseleccionado;
-                    parametro.confignodo = txtConfigOriginal.Text;
-                    parametro.config = config;
+                    IniciarParametros();
 
-                    if (nodoseleccionado.ToLower() == "appsettings" || nodoseleccionado.ToLower() == "connectionstrings")
-                        procesador.metodo = new ProcesarAutomatico(parametro, txtRemplazar.Text);
-                    else
-                        procesador.metodo = new ProcesarManual(parametro, txtConfigOriginal.Text);
-
-                    procesador.Iniciarproceso();
+                    new ProcesarManual(parametro, txtConfigOriginal.Text).Iniciar();
                     txtConfigOriginal.Text = parametro.nuevosvalues.ToString();
-
-                    txtRemplazar.Clear();
-                    txtRemplazar.Visible = false;
-                    lblmensaje.Visible = false;
 
                     AgregarNodo.Agregar(lstnodos, nodoseleccionado, txtConfigOriginal.Text);
                     MessageBox.Show($"Se actualizo el nodo: {nodoseleccionado}");
+
+                    RestablecerControl();
                 }
             }
             catch (Exception ex)
@@ -168,41 +162,63 @@ namespace Analizador
             }
         }
 
-        private void chkManual_CheckedChanged(object sender, EventArgs e)
+        private ParametrosEntity IniciarParametros()
         {
-            txtConfigOriginal.ReadOnly = !chkManual.Checked;
-            txtConfigOriginal.ForeColor = chkManual.Checked ? System.Drawing.Color.FromArgb(0, 0, 0) : System.Drawing.Color.FromArgb(99, 136, 236);
+            parametro.nodoseleccionado = cmbNodos.Text;
+            parametro.confignodo = txtConfigOriginal.Text;
+            parametro.config = config;
+            return parametro;
         }
 
         private void btnExportarxml_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtRutaconfig.Text))
-            {
-                MessageBox.Show("Seleccione el archivo .config");
-                return;
-            }
-            if (viewFolder.ShowDialog() == DialogResult.OK)
+            if (!lstnodos.Any())
+                MessageBox.Show("Modifique el .config para iniciar la descarga..");
+            else if (viewFolder.ShowDialog() == DialogResult.OK)
             {
                 string nombre = Path.GetFileName(txtRutaconfig.Text);
                 string ruta = Path.Combine(viewFolder.SelectedPath, nombre);
 
                 ExportarConfig.Exportar(lstnodos, config, ruta);
                 ExportarConfigtmp.Exportar(lstnodos, ruta);
+
                 MessageBox.Show($"Exportado en: {ruta}");
             }
         }
 
         private void btnRollback_Click(object sender, EventArgs e)
         {
-            if (lstnodos?.Any() == false || lstnodos == null)
-            {
-                MessageBox.Show("Especifique los nuevos valores del config");
-                return;
-            }
-            lstnodos?.Clear();
-            chkManual.Checked = false;
-            MessageBox.Show("Se limpiaron los nuevos valores");
+            lstnodos.RemoveAll(i => i.name == cmbNodos.Text);
+            RestablecerControl();
+            txtConfigOriginal.Text = config.nodos.Find(i => i.name == cmbNodos.Text).content;
+        }
 
+        private void RestablecerControl()
+        {
+            txtConfigOriginal.ReadOnly = true;
+            txtConfigOriginal.ForeColor = System.Drawing.Color.FromArgb(105, 154, 231);
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            string seleccion = cmbNodos.Text;
+            bool automatico = seleccion.ToLower() == "appsettings" || seleccion.ToLower() == "connectionstrings";
+
+            txtConfigOriginal.ReadOnly = automatico;
+            txtConfigOriginal.ForeColor = !automatico ? System.Drawing.Color.FromArgb(97, 205, 223) : System.Drawing.Color.FromArgb(105, 154, 231);
+
+            if (automatico)
+            {
+                FormConfigDetalle detalle = new FormConfigDetalle(IniciarParametros());
+                detalle.ShowDialog();
+
+                if (!string.IsNullOrWhiteSpace(parametro.nuevosvalues.ToString()))
+                {
+                    txtConfigOriginal.Text = parametro.nuevosvalues.ToString();
+                    AgregarNodo.Agregar(lstnodos, parametro.nodoseleccionado, txtConfigOriginal.Text);
+                    MessageBox.Show($"Se actualizo el nodo: {parametro.nodoseleccionado}");
+                }
+            }
         }
     }
 }

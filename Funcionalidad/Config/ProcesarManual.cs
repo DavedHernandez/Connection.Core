@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Analizador.Funcionalidad.Config
 {
-    public class ProcesarManual : IProcesar
+    public struct ProcesarManual : IProcesar
     {
         private ParametrosEntity parametro;
         private string contenido;

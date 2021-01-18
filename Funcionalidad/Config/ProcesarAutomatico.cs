@@ -7,7 +7,7 @@ using XML.Core.Funcionalidad.Maping;
 
 namespace Analizador.Funcionalidad.Config
 {
-    public class ProcesarAutomatico : IProcesar
+    public struct ProcesarAutomatico : IProcesar
     {
         private ParametrosEntity parametro;
         private string nuevosparametros;
@@ -21,27 +21,29 @@ namespace Analizador.Funcionalidad.Config
             if (string.IsNullOrWhiteSpace(nuevosparametros))
                 throw new Exception("Especifique los nuevos values del config.");
 
-            ConfigBase procesador = new ConfigBase();
+
             parametro.nuevosvalues = new StringBuilder();
-            bool agregar = true;
+            int index = 0;
 
             parametro.configparseado = new MapearConfig(Crearxml.Crear(parametro.nodoseleccionado, nuevosparametros)).Mapear();
 
             foreach (var item in parametro.confignodo.Split(new[] { "\n" }, StringSplitOptions.RemoveEmptyEntries))
             {
-                //procesador.MetodoBuilder(new ParametrosEntity { item = item, contenidoxml = contenidoxml, nodoseleccionado = nodoseleccionado, nuevoxml = nuevoxml });
                 parametro.item = item;
-                procesador.metodo = new NodoBuilder().Builder(parametro);
-                procesador.Iniciarproceso();
 
-                if (agregar)
-                {
-                    procesador.metodo = new AgregarAppSetting(parametro);
-                    procesador.Iniciarproceso();
-                    agregar = false;
-                }
+                if (index == 1)
+                    Procesardatos(true); // Nuevos values.
+
+                Procesardatos();
+                index++;
             }
+        }
 
+        private void Procesardatos(bool agregar = false)
+        {
+            ConfigBase procesador = new ConfigBase();
+            procesador.metodo = new NodoBuilder().Builder(parametro, agregar);
+            procesador.Iniciarproceso();
         }
     }
 }

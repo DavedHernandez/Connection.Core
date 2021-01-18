@@ -34,3 +34,6 @@ C:\Bitbucket\extractorconfig\obj\Debug\Analizador.csproj.CoreCompileInputs.cache
 C:\Bitbucket\extractorconfig\obj\Debug\Analizador.csproj.CopyComplete
 C:\Bitbucket\extractorconfig\obj\Debug\Analizador.exe
 C:\Bitbucket\extractorconfig\obj\Debug\Analizador.pdb
+C:\Bitbucket\extractorconfig\obj\Debug\Analizador.csprojAssemblyReference.cache
+C:\Bitbucket\extractorconfig\obj\Debug\Analizador.Forms.FormConfigDetalle.resources
+C:\Bitbucket\extractorconfig\bin\Debug\FontAwesome.Sharp.dll
