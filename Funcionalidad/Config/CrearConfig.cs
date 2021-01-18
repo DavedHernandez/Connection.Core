@@ -18,7 +18,7 @@ namespace Analizador.Funcionalidad.Config
                 var xml = XDocument.Parse(contenido.ToString());
                 xml.Save(PathSave);
             }
-            catch (System.Exception ex)
+            catch (System.Exception )
             {
 
 

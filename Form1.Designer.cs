@@ -47,19 +47,17 @@
             this.lblConexion = new System.Windows.Forms.Label();
             this.gvConfiguracion = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.chkManual = new System.Windows.Forms.CheckBox();
-            this.btnExportarxml = new System.Windows.Forms.Button();
-            this.lblmensaje = new System.Windows.Forms.Label();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.txtRemplazar = new System.Windows.Forms.RichTextBox();
             this.txtConfigOriginal = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cmbNodos = new System.Windows.Forms.ComboBox();
             this.txtRutaconfig = new System.Windows.Forms.TextBox();
-            this.btnCargarConfig = new System.Windows.Forms.Button();
             this.selectFile = new System.Windows.Forms.OpenFileDialog();
-            this.btnRollback = new System.Windows.Forms.Button();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.iconButton4 = new FontAwesome.Sharp.IconButton();
+            this.iconButton5 = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalle)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -109,9 +107,12 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.ImeMode = System.Windows.Forms.ImeMode.Katakana;
             this.tabControl1.Location = new System.Drawing.Point(42, 12);
             this.tabControl1.Name = "tabControl1";
@@ -283,18 +284,16 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.btnRollback);
-            this.tabPage3.Controls.Add(this.chkManual);
-            this.tabPage3.Controls.Add(this.btnExportarxml);
-            this.tabPage3.Controls.Add(this.lblmensaje);
-            this.tabPage3.Controls.Add(this.btnActualizar);
-            this.tabPage3.Controls.Add(this.txtRemplazar);
+            this.tabPage3.Controls.Add(this.iconButton5);
+            this.tabPage3.Controls.Add(this.iconButton4);
+            this.tabPage3.Controls.Add(this.iconButton3);
+            this.tabPage3.Controls.Add(this.iconButton2);
+            this.tabPage3.Controls.Add(this.iconButton1);
             this.tabPage3.Controls.Add(this.txtConfigOriginal);
             this.tabPage3.Controls.Add(this.label6);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.cmbNodos);
             this.tabPage3.Controls.Add(this.txtRutaconfig);
-            this.tabPage3.Controls.Add(this.btnCargarConfig);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -303,72 +302,18 @@
             this.tabPage3.Text = "Configurar .config";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // chkManual
-            // 
-            this.chkManual.AutoSize = true;
-            this.chkManual.Location = new System.Drawing.Point(131, 129);
-            this.chkManual.Name = "chkManual";
-            this.chkManual.Size = new System.Drawing.Size(67, 21);
-            this.chkManual.TabIndex = 24;
-            this.chkManual.Text = "Editar";
-            this.chkManual.UseVisualStyleBackColor = true;
-            this.chkManual.CheckedChanged += new System.EventHandler(this.chkManual_CheckedChanged);
-            // 
-            // btnExportarxml
-            // 
-            this.btnExportarxml.BackColor = System.Drawing.Color.Black;
-            this.btnExportarxml.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportarxml.ForeColor = System.Drawing.Color.Cyan;
-            this.btnExportarxml.Location = new System.Drawing.Point(658, 131);
-            this.btnExportarxml.Name = "btnExportarxml";
-            this.btnExportarxml.Size = new System.Drawing.Size(90, 32);
-            this.btnExportarxml.TabIndex = 23;
-            this.btnExportarxml.Text = "Exportar";
-            this.btnExportarxml.UseVisualStyleBackColor = false;
-            this.btnExportarxml.Click += new System.EventHandler(this.btnExportarxml_Click);
-            // 
-            // lblmensaje
-            // 
-            this.lblmensaje.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblmensaje.AutoSize = true;
-            this.lblmensaje.Location = new System.Drawing.Point(1064, 133);
-            this.lblmensaje.Name = "lblmensaje";
-            this.lblmensaje.Size = new System.Drawing.Size(109, 17);
-            this.lblmensaje.TabIndex = 21;
-            this.lblmensaje.Text = "Remplazar por..";
-            this.lblmensaje.Visible = false;
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.BackColor = System.Drawing.Color.Black;
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.Cyan;
-            this.btnActualizar.Location = new System.Drawing.Point(562, 131);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(90, 32);
-            this.btnActualizar.TabIndex = 20;
-            this.btnActualizar.Text = "Grabar";
-            this.btnActualizar.UseVisualStyleBackColor = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // txtRemplazar
-            // 
-            this.txtRemplazar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtRemplazar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRemplazar.Location = new System.Drawing.Point(864, 169);
-            this.txtRemplazar.Name = "txtRemplazar";
-            this.txtRemplazar.Size = new System.Drawing.Size(483, 515);
-            this.txtRemplazar.TabIndex = 18;
-            this.txtRemplazar.Text = "";
-            // 
             // txtConfigOriginal
             // 
-            this.txtConfigOriginal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtConfigOriginal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(136)))), ((int)(((byte)(236)))));
+            this.txtConfigOriginal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtConfigOriginal.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txtConfigOriginal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfigOriginal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(154)))), ((int)(((byte)(231)))));
             this.txtConfigOriginal.Location = new System.Drawing.Point(131, 169);
             this.txtConfigOriginal.Name = "txtConfigOriginal";
             this.txtConfigOriginal.ReadOnly = true;
-            this.txtConfigOriginal.Size = new System.Drawing.Size(713, 515);
+            this.txtConfigOriginal.Size = new System.Drawing.Size(1199, 515);
             this.txtConfigOriginal.TabIndex = 17;
             this.txtConfigOriginal.Text = "";
             // 
@@ -392,6 +337,7 @@
             // 
             // cmbNodos
             // 
+            this.cmbNodos.BackColor = System.Drawing.SystemColors.Control;
             this.cmbNodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbNodos.FormattingEnabled = true;
@@ -403,7 +349,7 @@
             // 
             // txtRutaconfig
             // 
-            this.txtRutaconfig.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.txtRutaconfig.BackColor = System.Drawing.Color.White;
             this.txtRutaconfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRutaconfig.Location = new System.Drawing.Point(131, 33);
             this.txtRutaconfig.Name = "txtRutaconfig";
@@ -411,35 +357,100 @@
             this.txtRutaconfig.Size = new System.Drawing.Size(713, 26);
             this.txtRutaconfig.TabIndex = 13;
             // 
-            // btnCargarConfig
-            // 
-            this.btnCargarConfig.BackColor = System.Drawing.Color.Black;
-            this.btnCargarConfig.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCargarConfig.ForeColor = System.Drawing.Color.Cyan;
-            this.btnCargarConfig.Location = new System.Drawing.Point(466, 131);
-            this.btnCargarConfig.Name = "btnCargarConfig";
-            this.btnCargarConfig.Size = new System.Drawing.Size(90, 32);
-            this.btnCargarConfig.TabIndex = 12;
-            this.btnCargarConfig.Text = "Cargar";
-            this.btnCargarConfig.UseVisualStyleBackColor = false;
-            this.btnCargarConfig.Click += new System.EventHandler(this.btnCargarConfig_Click);
-            // 
             // selectFile
             // 
             this.selectFile.FileName = "openFileDialog1";
             // 
-            // btnRollback
+            // iconButton1
             // 
-            this.btnRollback.BackColor = System.Drawing.Color.Black;
-            this.btnRollback.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRollback.ForeColor = System.Drawing.Color.Cyan;
-            this.btnRollback.Location = new System.Drawing.Point(754, 131);
-            this.btnRollback.Name = "btnRollback";
-            this.btnRollback.Size = new System.Drawing.Size(90, 32);
-            this.btnRollback.TabIndex = 25;
-            this.btnRollback.Text = "Rollback";
-            this.btnRollback.UseVisualStyleBackColor = false;
-            this.btnRollback.Click += new System.EventHandler(this.btnRollback_Click);
+            this.iconButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.iconButton1.IconColor = System.Drawing.Color.Blue;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton1.IconSize = 30;
+            this.iconButton1.Location = new System.Drawing.Point(1227, 23);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(1);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(37, 32);
+            this.iconButton1.TabIndex = 27;
+            this.iconButton1.Tag = "Guardar cambios";
+            this.iconButton1.UseVisualStyleBackColor = true;
+            this.iconButton1.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.CheckDouble;
+            this.iconButton2.IconColor = System.Drawing.Color.MediumSeaGreen;
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton2.IconSize = 30;
+            this.iconButton2.Location = new System.Drawing.Point(1188, 23);
+            this.iconButton2.Margin = new System.Windows.Forms.Padding(1);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(37, 32);
+            this.iconButton2.TabIndex = 28;
+            this.iconButton2.Tag = "Editar";
+            this.iconButton2.UseVisualStyleBackColor = true;
+            this.iconButton2.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.FileDownload;
+            this.iconButton3.IconColor = System.Drawing.Color.Navy;
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton3.IconSize = 30;
+            this.iconButton3.Location = new System.Drawing.Point(1266, 23);
+            this.iconButton3.Margin = new System.Windows.Forms.Padding(1);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(37, 32);
+            this.iconButton3.TabIndex = 29;
+            this.iconButton3.Tag = "Exportar .config";
+            this.iconButton3.UseVisualStyleBackColor = true;
+            this.iconButton3.Click += new System.EventHandler(this.btnExportarxml_Click);
+            // 
+            // iconButton4
+            // 
+            this.iconButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton4.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
+            this.iconButton4.IconColor = System.Drawing.Color.Red;
+            this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton4.IconSize = 30;
+            this.iconButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.iconButton4.Location = new System.Drawing.Point(1146, 23);
+            this.iconButton4.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton4.Name = "iconButton4";
+            this.iconButton4.Size = new System.Drawing.Size(45, 32);
+            this.iconButton4.TabIndex = 30;
+            this.iconButton4.Tag = "Cancelar";
+            this.iconButton4.UseVisualStyleBackColor = true;
+            this.iconButton4.Click += new System.EventHandler(this.btnRollback_Click);
+            // 
+            // iconButton5
+            // 
+            this.iconButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton5.ForeColor = System.Drawing.Color.Transparent;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.iconButton5.IconColor = System.Drawing.Color.Teal;
+            this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton5.IconSize = 30;
+            this.iconButton5.Location = new System.Drawing.Point(1299, 23);
+            this.iconButton5.Margin = new System.Windows.Forms.Padding(0);
+            this.iconButton5.Name = "iconButton5";
+            this.iconButton5.Size = new System.Drawing.Size(37, 32);
+            this.iconButton5.TabIndex = 31;
+            this.iconButton5.Tag = "Buscar archivo";
+            this.iconButton5.UseVisualStyleBackColor = true;
+            this.iconButton5.Click += new System.EventHandler(this.btnCargarConfig_Click);
             // 
             // Form1
             // 
@@ -452,6 +463,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.gridPrincipal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridDetalle)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -489,18 +501,16 @@
         private System.Windows.Forms.RadioButton rbConfig;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox txtRutaconfig;
-        private System.Windows.Forms.Button btnCargarConfig;
         private System.Windows.Forms.OpenFileDialog selectFile;
         private System.Windows.Forms.RichTextBox txtConfigOriginal;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbNodos;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.RichTextBox txtRemplazar;
-        private System.Windows.Forms.Label lblmensaje;
-        private System.Windows.Forms.Button btnExportarxml;
-        private System.Windows.Forms.CheckBox chkManual;
-        private System.Windows.Forms.Button btnRollback;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private FontAwesome.Sharp.IconButton iconButton4;
+        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton5;
     }
 }
 
